@@ -41,9 +41,9 @@ class ControlScene(object):
         self.currTime = currTime
 
         if self.currTime - self.startTime > Settings.time:
-            self.manager.go_to(EndScene(0, 1, self.currTime, True))
+            self.manager.go_to(EndScene(0, 1, self.currTime - self.startTime, True))
 
     def handle_events(self, events):
         for e in events:
             if self.exitButton.isHit(e):
-                self.manager.go_to(EndScene(0, 1, self.currTime, False))
+                self.manager.go_to(EndScene(0, 1, self.currTime - self.startTime, False))

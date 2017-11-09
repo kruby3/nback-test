@@ -83,7 +83,7 @@ class NBackScene(Scene):
         if self.currTime - self.startTime > Settings.time:
 
             accuracy = float(self.correctTrials) / (self.numTrials + 1)
-            self.manager.go_to(EndScene(self.nback, accuracy, self.currTime, True))
+            self.manager.go_to(EndScene(self.nback, accuracy, self.currTime - self.startTime, True))
 
         if (timesUp or self.spacePressed):
             #Check if correct action was taken (press space, or wait)
@@ -122,7 +122,7 @@ class NBackScene(Scene):
                 self.spacePressed = True
             if self.exitButton.isHit(e):
                 accuracy = float(self.correctTrials) / (self.numTrials + 1)
-                self.manager.go_to(EndScene(self.nback, accuracy, self.currTime, False))
+                self.manager.go_to(EndScene(self.nback, accuracy, self.currTime - self.startTime, False))
 
 
 
