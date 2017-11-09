@@ -16,9 +16,9 @@ mid = (screenWidth // 2, screenHeight // 2)
 
 #Fonts
 letterFont = pygame.font.SysFont("arial", 120, True, False)
-statusFont = pygame.font.SysFont("arial", 20, True, False)
+statusFont = pygame.font.SysFont("arial", 15, True, False)
 bFont = pygame.font.SysFont("arial", 20, True, False)
-smallInst = pygame.font.SysFont("arial", 20, True, False)
+smallInst = pygame.font.SysFont("arial", 15, True, False)
 
 
 #Colors

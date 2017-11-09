@@ -9,7 +9,7 @@ import Settings
 from SceneManager import SceneManager
 
 def main():
-    screen = pygame.display.set_mode((Settings.screenWidth, Settings.screenHeight), pygame.FULLSCREEN)
+    screen = pygame.display.set_mode((Settings.screenWidth, Settings.screenHeight), pygame.RESIZABLE)
     pygame.display.set_caption("NBack Test")
     timer = pygame.time.Clock()
     running = True
