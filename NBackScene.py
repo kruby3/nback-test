@@ -27,6 +27,7 @@ class NBackScene(Scene):
         self.correctTrials = 0
         #Seconds since test started
         self.currTime = None
+        self.startTime = None
         #True if in transition state between trials
         self.transitionTrial = False
         self.exitButton = Button((0, 0), (50, 50), pygame.Color("red"), "X", 1)
@@ -68,6 +69,8 @@ class NBackScene(Scene):
         #Ensures first trial starts at correct time
         if self.currTime is None:
             self.currTime = currTime
+        if self.startTime is None:
+            self.startTime = currTime
 
         self.trialTimer = self.trialTimer + (currTime - self.currTime)
         #print(self.trialTimer)
@@ -77,7 +80,7 @@ class NBackScene(Scene):
         timesUp = self.trialTimer > Settings.secDisp
 
 
-        if self.currTime > Settings.time:
+        if self.currTime - self.startTime > Settings.time:
 
             accuracy = float(self.correctTrials) / (self.numTrials + 1)
             self.manager.go_to(EndScene(self.nback, accuracy, self.currTime, True))

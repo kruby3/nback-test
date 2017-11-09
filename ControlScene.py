@@ -13,6 +13,7 @@ class ControlScene(object):
         self.currTime = None
         self.exitButton = Button((0, 0), (50, 50), pygame.Color("red"), "X", 1)
         self.controlText = Settings.letterFont.render('+', True, Settings.black)
+        self.startTime = None
 
 
     def render(self, screen):
@@ -32,12 +33,14 @@ class ControlScene(object):
     def update(self, currTime):
         if self.currTime is None:
             self.currTime = currTime
+        if self.startTime is None:
+            self.startTime = currTime
 
         self.trialTimer = self.trialTimer + (currTime - self.currTime)
 
         self.currTime = currTime
 
-        if self.currTime > Settings.time:
+        if self.currTime - self.startTime > Settings.time:
             self.manager.go_to(EndScene(0, 1, self.currTime, True))
 
     def handle_events(self, events):
