@@ -17,6 +17,12 @@ class InstructionScene(Scene):
     def render(self, screen):
         screen.fill(Settings.white)
 
+        nbackImg = pygame.image.load("oneback.png")
+        if self.nBack is 2:
+            nbackImg = pygame.image.load("twoback.png")
+        elif self.nBack is 3:
+            nbackImg = pygame.image.load('threeback.png')
+
         # For control group
         if self.nBack == 0:
             title = Settings.statusFont.render("Please wait and look at the '+' on the screen", True, Settings.black)
@@ -47,6 +53,7 @@ class InstructionScene(Scene):
             screen.blit(i2, (Settings.mid[0] - i2.get_width() // 2, 50))
             screen.blit(i3, (Settings.mid[0] - i3.get_width() // 2, 70))
             screen.blit(i4, (Settings.mid[0] - i4.get_width() // 2, 90))
+            screen.blit(nbackImg, (Settings.mid[0] - nbackImg.get_width() // 2, 120))
 
     def update(self, seconds):
         pass
